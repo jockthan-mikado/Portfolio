@@ -1,5 +1,5 @@
 /* ceci est un commentaire js */
-// 
+// console.log('toto');
 
 // string 
 
@@ -114,26 +114,24 @@ header.addEventListener('mouseenter', (e) => {
 
 // insertion dom et navigation dans le dom
 
-let div = document.createElement('div'); //on crée un div
-div.classList.add('top'); //on ajoute une class
-div.innerHTML = `<span>Top zone</span>`;  //on insère un contenu html
-//header.append(div); // on rajoute la div dans le header
-//header.parentNode.append(div);  // on ajoute la div avant la fermeture du parent du header
-// console.log(header.nextElementSibling); //on cible le prochain élément après le header
+let div = document.createElement('div');
+div.classList.add('top');
+div.innerHTML = `<span>Top zone</span>`;
+// console.log(header.nextElementSibling);
 
 // fin de la théorie 
 
 /* Menu mobile */
 
 function menuMobile() {
-  const btn = document.querySelector('.burger');  //on cible la bar
-  const header = document.querySelector('.header'); //on cible la class header
-  const links = document.querySelectorAll('.navbar a'); //on cible tous les liens dans la nav bar
+  const btn = document.querySelector('.burger');
+  const header = document.querySelector('.header');
+  const links = document.querySelectorAll('.navbar a');
 
   btn.addEventListener('click', () => {
     header.classList.toggle('show-nav');
   });
-  //au click sur le lien dans la nav bar on supprime la class show-nav
+
   links.forEach(link => {
     link.addEventListener('click', () => {
       header.classList.remove('show-nav');
@@ -146,9 +144,9 @@ menuMobile();
 /* Porfolio */
 
 function tabsFilters() {
-  const tabs = document.querySelectorAll('.portfolio-filters a'); //on cible tous les liens dans portfolio-filters
-  const projets = document.querySelectorAll('.portfolio .card');  //on cible tous les card dans portfolio
-  //supprime toutes les classes actives
+  const tabs = document.querySelectorAll('.portfolio-filters a');
+  const projets = document.querySelectorAll('.portfolio .card');
+
   const resetActiveLinks = () => {
     tabs.forEach(elem => {
       elem.classList.remove('active');
@@ -157,36 +155,36 @@ function tabsFilters() {
 
   const showProjets = (elem) => {
     console.log(elem);
-    projets.forEach(projet => { //on parcours tous les cards
+    projets.forEach(projet => {
 
-      let filter = projet.getAttribute('data-category'); // on recupère chacune de valeur de card
+      let filter = projet.getAttribute('data-category');
 
-      if (elem === 'all') { //si l'element cliquer a pour valeur all on supprime la classe hide
+      if (elem === 'all') {
         projet.parentNode.classList.remove('hide');
         return
       }
 
       console.log('tutu');
       // ne sera pas pris en compte !
-      /*if (filter !== elem) {   //si le lien qu'on a cliquer ne correspond pas a la veleur du card
-        projet.parentNode.classList.add('hide'); //on ajoute la class hide
+      /*if (filter !== elem) {
+        projet.parentNode.classList.add('hide');
       } else {
         projet.parentNode.classList.remove('hide');
       }*/
 
-      // ou par l'opérateur ternaire
+      // option pour les plus motivés - opérateur ternaire
       filter !== elem ? projet.parentNode.classList.add('hide') : projet.parentNode.classList.remove('hide');
 
     });
   }
 
   tabs.forEach(elem => {
-    elem.addEventListener('click', (event) => {  //on parcours tous les liens
+    elem.addEventListener('click', (event) => {
       event.preventDefault();
-      let filter = elem.getAttribute('data-filter'); // on recupère chacune de valeur du lien
-      showProjets(filter)   // on passe la valeur de data-filter du lien qu'on a clicker
+      let filter = elem.getAttribute('data-filter');
+      showProjets(filter)
       resetActiveLinks();
-      elem.classList.add('active'); //on rend la class active
+      elem.classList.add('active');
     });
   })
 }
@@ -268,8 +266,5 @@ const observerIntersectionAnimation = () => {
 }
 
 observerIntersectionAnimation();
-
-
-
 
 
