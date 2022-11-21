@@ -190,7 +190,7 @@ function tabsFilters() {
     });
   })
 }
- 
+
 tabsFilters()
 
 function showProjectDetails() {
@@ -268,5 +268,8 @@ const observerIntersectionAnimation = () => {
 }
 
 observerIntersectionAnimation();
+
+
+
 
 
