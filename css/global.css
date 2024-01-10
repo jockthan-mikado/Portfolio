@@ -291,7 +291,8 @@ section {
 }
 
 .hero {
-  background: #5b6c78;
+  /* background: #5b6c78; #2f3665*/
+  background:#252b50;
   color: #FFF;
   padding: 1rem 0 0 0;
 }
